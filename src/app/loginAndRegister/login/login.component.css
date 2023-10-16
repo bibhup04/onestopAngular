@@ -1,0 +1,55 @@
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fddcf5;
+    color: #090709;
+    border-radius: 8px;
+    padding: 20px;
+    inline-size: 300px;
+    text-align: center;
+}
+
+.container h2 {
+    margin-block-end: 20px;
+}
+
+.container img {
+    border-style: dotted;
+    border-radius: 50%; /* This rounds the image */
+    max-inline-size: 100%; /* Ensures the image fits within the container */
+    block-size: 100px; /* Maintains aspect ratio */
+}
+
+.container label {
+    display: block;
+    margin-block-end: 5px;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+    inline-size: 100%;
+    padding: 10px;
+    margin-block-end: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.container input[type="submit"] {
+    background-color: #f97de9;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #ff9ced;
+}

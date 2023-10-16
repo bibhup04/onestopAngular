@@ -89,10 +89,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cf2d7174-d872-4b79-81bb-ef7c2fab0819"
   }
 }

@@ -6,7 +6,7 @@
   
   .contents {
     width: 1000%;
-    /* background-color: green; */
+    background-color: green; /* Set the background color to green */
   }
 
   .nav-bar{
