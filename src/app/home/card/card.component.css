@@ -1,0 +1,80 @@
+.card-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Adjust the width as needed */
+    height: 360px; /* Adjust the height as needed */
+
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .front {
+    background-color: #f8f9fa;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background-color: lightblue;
+  }
+  
+  .card-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .flipped {
+    transform: rotateY(180deg);
+  }
+  
+
+  .original-price {
+    text-decoration: line-through;
+    color: red;
+    margin-right: 10px;
+  }
+  
+
+  .circular-frame {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    background-color: lightgray;
+  }
+  
+  .circular-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  

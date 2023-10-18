@@ -13,7 +13,7 @@ export class PlanDTO {
   
   export class OttDTO {
     ottId?: number;
-    ottName?: string;
+    ottName: string = 'abc';
     planTitle?: string;
   }
   

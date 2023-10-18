@@ -1,0 +1,54 @@
+<div class="card-container">
+    <div class="card" [@flip]="flipState">
+      <div class="front">
+        <div class="card-content">
+          <div>
+            <p class="h4"><span class="original-price">{{ plan?.price  | currency: 'INR'}}</span> {{ plan?.finalPrice  | currency: 'INR'}}</p>
+          </div>
+          <p class="h3">{{plan?.planDescription}}</p>
+          <div style="display: flex; justify-content: space-between;">
+            <div>
+              <p class="h5">Validity</p>
+              <p>Bill Cycle</p>
+            </div>
+            <div>
+              <p class="h5">Benefits</p>
+              <p>{{ plan?.memberCount }} 🧑‍🤝‍🧑</p>
+            </div>
+          </div>
+          
+          <p class="h4">Subscriptions</p>
+          <!-- <img src="https://hindubabynames.info/wp-content/themes/hbn_download/download/entertainment-and-channels-companies/sony-liv-logo.png" alt="Description of the image" height="30" width="30">
+          <li *ngFor="let ott of plan?.otts">
+            {{ ott.ottName }}
+          </li> -->
+          <div style="display: flex; justify-content: center;">
+            <ng-container *ngFor="let ott of plan?.otts">
+              <div class="circular-frame">
+                <img [src]="ottImages[ott.ottName]" alt="{{ ott.ottName }} Logo" width="30" height="30">
+              </div>
+            </ng-container>
+          </div>
+          
+         
+        </div>
+        <div class="card-buttons">
+          <button class="btn btn-primary btn-sm mr-4" (click)="toggleFlip()">Details</button>
+          <button class="btn btn-danger btn-sm">Get Now</button>
+        </div>
+      </div>
+      <div class="back">
+        <div class="card-content">
+          <p> Bill Cycle- {{plan?.billingCycle}}</p>
+          <p>OTT Platforms- {{plan?.ottCount}}</p>
+          <li *ngFor="let ott of plan?.otts">
+            {{ ott.ottName }} {{ott.planTitle}}
+          </li>
+        </div>
+        <div class="card-buttons">
+          <button class="btn btn-primary btn-sm mr-4" (click)="toggleFlip()">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

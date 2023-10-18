@@ -8,6 +8,7 @@ import { AdminComponent } from './home/admin/admin.component';
 import { AdminGuard } from './AdminGuard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { FamilyMemberComponent } from './home/family-member/family-member.component';
+import { CardComponent } from './home/card/card.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent},
   { path: 'family', component: FamilyMemberComponent},
+  { path: 'card', component: CardComponent},
   {
     path: 'admin',
     component: AdminComponent,
