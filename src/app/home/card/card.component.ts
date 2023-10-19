@@ -1,6 +1,10 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Inject, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PlanDTO, OttDTO } from 'src/app/DTO/plan';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 @Component({
   selector: 'app-card',
@@ -19,6 +23,8 @@ export class CardComponent {
   @Input() plan?: PlanDTO;
   flipState: string = 'front';
 
+  constructor(@Inject(NgbModal)private modalService: NgbModal) {};
+
   toggleFlip() {
     this.flipState = this.flipState === 'front' ? 'back' : 'front';
   }
@@ -29,5 +35,34 @@ export class CardComponent {
     'Disney+': 'https://hindubabynames.info/wp-content/themes/hbn_download/download/entertainment-and-channels-companies/disney-plus-hotstar-logo.png',
     'SonyLiv': 'https://hindubabynames.info/wp-content/themes/hbn_download/download/entertainment-and-channels-companies/sony-liv-logo.png'
   };
-  
+
+
+
+openConfirmation() {
+ 
+  const modal = document.getElementById('confirmationModal');
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
+
+
+
+
+closeModal() {
+  const modal = document.getElementById('confirmationModal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+
+confirmPurchase(planId: any) {
+
+  console.log('Plan ID:', planId);
+
+}
+
+
+
+
 }

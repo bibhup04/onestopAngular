@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../AuthService';
+import { UserStatusService } from '../service/user-status.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,7 @@ export class NavigationComponent {
   isAdmin = false;
   userName = "abc";
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private userStatusService: UserStatusService, private authService: AuthService, private router: Router) {
     this.isLoggedIn = this.authService.isLoggedIn;
     this.isAdmin = this.authService.isUserAdmin();
     this.userName = this.authService.getUserName();
@@ -21,7 +22,12 @@ export class NavigationComponent {
   // getUserName(){
   //   this.userName = this.authService.getUserName();
   // }
-
+  ngOnInit() {
+    this.userStatusService.isLoggedIn.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+  }
+  
   logout() {
     this.authService.logout(); 
     this.isLoggedIn = false;

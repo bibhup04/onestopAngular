@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user';
 import { Router } from '@angular/router';
+import { UserStatusService } from './service/user-status.service';
 import jwt_decode from 'jwt-decode';
 
 
@@ -14,9 +15,10 @@ export class AuthService {
     user: any;
     //private authToken: string | null = null;
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private userStatusService: UserStatusService, private http: HttpClient, private router: Router) { }
 
     login(user: User): Observable<any> {
+      this.userStatusService.changeLoginStatus(true);
         return this.http.post(`${this.apiUrl}`, user);
     }
 
@@ -64,6 +66,7 @@ export class AuthService {
 
     logout(): void {
         //this.authToken = null; // Clear the authToken property
+        this.userStatusService.changeLoginStatus(false);
         localStorage.removeItem('token');
         this.router.navigate(['login']);
     }

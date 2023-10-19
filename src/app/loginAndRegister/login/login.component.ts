@@ -19,7 +19,6 @@ export class LoginComponent {
     password: ''
   };
 
-  ngOnInit(){};
 
   userDTO?: UserDTO;
 
@@ -55,7 +54,7 @@ export class LoginComponent {
     this.authService.setToken(token);
 
     this.getFamilydata();
-    this.ngOnInit();
+
 
     
     this.router.navigate([redirectRoute]);

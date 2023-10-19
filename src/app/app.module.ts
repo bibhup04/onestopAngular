@@ -16,6 +16,7 @@ import { AdminComponent } from './home/admin/admin.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FamilyMemberComponent } from './home/family-member/family-member.component';
 import { CardComponent } from './home/card/card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CardComponent } from './home/card/card.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]

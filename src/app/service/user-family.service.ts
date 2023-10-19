@@ -23,6 +23,13 @@ export class UserFamilyService {
     return this.http.get<NewMemberDTO>(`${this.apiUrl}/getMember`);
   }
 
+  // addFamilyDetails(): Observable<NewMemberDTO>{
+  //   return this.http.post<NewMemberDTO>(`${this.apiUrl}/getMember`);
+  // }
+  addFamilyDetails( newMemberDTO: NewMemberDTO): Observable<any> {
+    return this.http.post(`${this.apiUrl}/addMember`, newMemberDTO);
+  }
+
 
 
 }

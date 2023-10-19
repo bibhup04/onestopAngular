@@ -2,20 +2,23 @@
     <h2>Family Members</h2>
     <div class="family-list">
       <ul>
-        <li *ngFor="let member of newMemberDTO?.members">
+        <li *ngFor="let member of MemberDTO?.members">
           {{ member.name }} - {{ member.phoneNo }}
         </li>
       </ul>
     </div>
-    <div class="add-member-box">
-      <i class="fas fa-plus-circle" (click)="addNewMember()"></i>
-    </div>
-    <form (ngSubmit)="onSubmit()">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" [(ngModel)]="newMemberName">
-      <label for="phoneNo">Phone Number:</label>
-      <input type="text" id="phoneNo" name="phoneNo" [(ngModel)]="newMemberPhoneNo">
-      <button type="submit">Add Member</button>
+   
+
+    <form #nameAndPhoneForm="ngForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="newMemberName">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" [(ngModel)]="newMemberPhoneNo">
+          </div>
+        <button type="button" (click)="addFields()">Add More</button>
+        <button type="submit">Submit</button>
     </form>
-  </div>
-  
+      
+      
+      

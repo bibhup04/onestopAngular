@@ -18,10 +18,7 @@
           </div>
           
           <p class="h4">Subscriptions</p>
-          <!-- <img src="https://hindubabynames.info/wp-content/themes/hbn_download/download/entertainment-and-channels-companies/sony-liv-logo.png" alt="Description of the image" height="30" width="30">
-          <li *ngFor="let ott of plan?.otts">
-            {{ ott.ottName }}
-          </li> -->
+    
           <div style="display: flex; justify-content: center;">
             <ng-container *ngFor="let ott of plan?.otts">
               <div class="circular-frame">
@@ -33,8 +30,8 @@
          
         </div>
         <div class="card-buttons">
-          <button class="btn btn-primary btn-sm mr-4" (click)="toggleFlip()">Details</button>
-          <button class="btn btn-danger btn-sm">Get Now</button>
+          <button class="btn btn-primary btn-sm mr-4" style="margin-right: 0.5rem;" (click)="toggleFlip()">Details</button>
+          <button class="btn btn-danger btn-sm"  (click)="openConfirmation()">Get Now</button>
         </div>
       </div>
       <div class="back">
@@ -52,3 +49,49 @@
     </div>
   </div>
   
+<!-- Existing HTML content -->
+
+<!-- Stylish confirmation modal -->
+<!-- Existing HTML content -->
+
+<!-- Scrollable modal -->
+<div class="modal" tabindex="-1" role="dialog" id="confirmationModal">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Your custom confirmation message here -->
+        <p>
+          Are you sure you want to proceed with this plan purchase? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <!-- Add more content here to make the modal scrollable -->
+        <!-- Example content -->
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>
+          Are you sure you want to proceed with this plan purchase? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <!-- Add more content here to make the modal scrollable -->
+        <!-- Example content -->
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+        <p>More content goes here...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-danger" (click)="confirmPurchase(plan?.planId)" data-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+

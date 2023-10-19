@@ -11,10 +11,18 @@ import { catchError } from 'rxjs';
 export class HomeComponent {
   planData: PlanDTO [] = [];
   constructor (private homeservice:HomeService){}
+  reload:boolean = false;
   
   ngOnInit(){
     this.getdata();
+    if(this.reload === false){
+      this.reloadpage();
+    }
+  }
 
+  reloadpage(){
+    this.reload = true;
+    this.ngOnInit();
   }
 
   getdata(){

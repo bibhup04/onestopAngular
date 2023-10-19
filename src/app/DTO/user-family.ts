@@ -9,12 +9,13 @@ export class UserDTO {
   }
   
 
-export class NewMemberDTO {
-  members?: NameAndPhone[];
+export interface NewMemberDTO {
+  members: NameAndPhone[];
+
 }
   
-export class NameAndPhone {
-  name?: string;
-  phoneNo?: string;
+export interface NameAndPhone {
+  name: string;
+  phoneNo: string;
 }
   
