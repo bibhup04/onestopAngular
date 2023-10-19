@@ -14,10 +14,11 @@ export class HomeComponent {
   
   ngOnInit(){
     this.getdata();
+
   }
 
   getdata(){
-
+   
     this.homeservice.getData().pipe(
       catchError((error) => {
         console.error('Error from the server', error);

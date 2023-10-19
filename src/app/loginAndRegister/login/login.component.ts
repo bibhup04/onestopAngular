@@ -4,6 +4,8 @@ import { catchError } from 'rxjs';
 import { AuthService } from 'src/app/AuthService';
 import { User } from 'src/app/user';
 import jwt_decode from 'jwt-decode';
+import { UserFamilyService } from 'src/app/service/user-family.service';
+import { UserDTO } from 'src/app/DTO/user-family';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +13,15 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private userFamilyService: UserFamilyService, private router: Router) { }
   user: User = {
     username: '',
     password: ''
   };
+
+  ngOnInit(){};
+
+  userDTO?: UserDTO;
 
   login(): void {
     this.authService.login(this.user).pipe(
@@ -47,12 +53,33 @@ export class LoginComponent {
     }
 
     this.authService.setToken(token);
+
+    this.getFamilydata();
+    this.ngOnInit();
+
+    
     this.router.navigate([redirectRoute]);
+    
     });
+    
   }
 
   logout(): void {
     this.authService.logout();
+  }
+
+  getFamilydata(){
+
+    this.userFamilyService.getUserFamilyData().pipe(
+      catchError((error) => {
+        console.error('Error from the server', error);
+        throw error;
+      })
+    ).subscribe((data) => {
+          this.userDTO = data;
+          console.log('Data from the server', this.userDTO);
+        });
+
   }
 
 }

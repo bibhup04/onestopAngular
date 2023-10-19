@@ -47,6 +47,16 @@ export class AuthService {
         return false;
       }
 
+    getUserName(): string {
+        const token = this.getToken();
+        if (token) {
+          const decodedToken: any = jwt_decode(token);
+          const userName = decodedToken.sub;
+          return userName;
+        }
+        return '';
+      }  
+
     get isLoggedIn(): boolean {
         let authToken = localStorage.getItem('token');
         return authToken !== null ? true : false;

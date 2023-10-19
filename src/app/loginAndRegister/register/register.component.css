@@ -1,55 +1,58 @@
-body {
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    block-size: 100vh;
-    margin: 0;
-}
+/* css.component.css */
 
 .container {
-    background-color: #fddcf5;
-    color: #090709;
-    border-radius: 8px;
+    width: 300px;
+    margin: 50px auto;
     padding: 20px;
-    inline-size: 300px;
     text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.container h2 {
-    margin-block-end: 20px;
+h2 {
+    color: #333;
 }
 
-.container img {
-    border-style: dotted;
-    border-radius: 50%; /* This rounds the image */
-    max-inline-size: 100%; /* Ensures the image fits within the container */
-    block-size: 100px; /* Maintains aspect ratio */
+.form-group {
+    margin-bottom: 15px;
 }
 
-.container label {
+label {
     display: block;
-    margin-block-end: 5px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.container input[type="text"],
-.container input[type="password"] {
-    inline-size: 100%;
-    padding: 10px;
-    margin-block-end: 10px;
-    border: none;
-    border-radius: 4px;
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.container input[type="submit"] {
-    background-color: #f97de9;
-    color: #000;
+button {
     padding: 10px 20px;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
-.container input[type="submit"]:hover {
-    background-color: #ff9ced;
+form {
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    margin-top: 20px;
+    display: inline-block;
 }

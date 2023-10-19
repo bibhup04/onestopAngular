@@ -16,7 +16,7 @@
           <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/family">Family</a>
+          <a class="nav-link" *ngIf="isLoggedIn" routerLink="/family">Family</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" *ngIf="isAdmin" (click)="navigateAdmin()">Admin</a>
@@ -32,6 +32,9 @@
         <!-- <li class="nav-item">
             <a class="nav-link" *ngIf="!isLoggedIn" (click)="register()">Register</a>
           </li> -->
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isLoggedIn" style="font-weight: bold;">Hey {{userName}}!</a>
+          </li>
         
       </ul>
     </div>

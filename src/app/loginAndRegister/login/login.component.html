@@ -1,7 +1,6 @@
-
 <div class="container">
     <h2>Login</h2>
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()" class="login-form">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
@@ -10,10 +9,9 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" class="login-button">Login</button>
     </form>
-    <button routerLink="/register"> Register</button>
+    <button routerLink="/register" class="register-button"> Register</button>
     <br>
-    <button (click)="logout()">Logout</button>
-
+    <button (click)="logout()" class="logout-button">Logout</button>
 </div>
