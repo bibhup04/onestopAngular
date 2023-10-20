@@ -3,9 +3,9 @@
       <div class="front">
         <div class="card-content">
           <div>
-            <p class="h4"><span class="original-price">{{ plan?.price  | currency: 'INR'}}</span> {{ plan?.finalPrice  | currency: 'INR'}}</p>
+            <p class="h4"><span class="original-price">{{ plan.price  | currency: 'INR'}}</span> {{ plan.finalPrice  | currency: 'INR'}}</p>
           </div>
-          <p class="h3">{{plan?.planDescription}}</p>
+          <p class="h3">{{plan.planDescription}}</p>
           <div style="display: flex; justify-content: space-between;">
             <div>
               <p class="h5">Validity</p>
@@ -13,7 +13,7 @@
             </div>
             <div>
               <p class="h5">Benefits</p>
-              <p>{{ plan?.memberCount }} 🧑‍🤝‍🧑</p>
+              <p>{{ plan.memberCount }} 🧑‍🤝‍🧑</p>
             </div>
           </div>
           
@@ -36,8 +36,8 @@
       </div>
       <div class="back">
         <div class="card-content">
-          <p> Bill Cycle- {{plan?.billingCycle}}</p>
-          <p>OTT Platforms- {{plan?.ottCount}}</p>
+          <p> Bill Cycle- {{plan.billingCycle}}</p>
+          <p>OTT Platforms- {{plan.ottCount}}</p>
           <li *ngFor="let ott of plan?.otts">
             {{ ott.ottName }} {{ott.planTitle}}
           </li>
@@ -55,7 +55,7 @@
 <!-- Existing HTML content -->
 
 <!-- Scrollable modal -->
-<div class="modal" tabindex="-1" role="dialog" id="confirmationModal">
+<div class="modal d-block" *ngIf="this.openModal" tabindex="-1" role="dialog" id="confirmationModal">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -64,32 +64,31 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <!-- Your custom confirmation message here -->
-        <p>
-          Are you sure you want to proceed with this plan purchase? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <!-- Add more content here to make the modal scrollable -->
-        <!-- Example content -->
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>
-          Are you sure you want to proceed with this plan purchase? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <!-- Add more content here to make the modal scrollable -->
-        <!-- Example content -->
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
-        <p>More content goes here...</p>
+      <div  class="modal-body">
+        <h3>Terms and Conditions</h3>
+        <h2>{{this.plan.planId}} {{this.plan.memberCount}} 123123</h2>
+    <h5>Billing Account and Membership:</h5>
+    <p>The postpaid multiple OTT subscription service is linked to a single billing account, owned by the primary account holder. 
+        The primary account holder can add up to four family members to the subscription service.</p>
+
+    <h5>Billing and Collection Cycle:</h5>
+    <p>The billing cycle for the subscription is 30 days, starting from the date of the subscription activation.
+        The collection cycle for payment is 14 days, starting from the billing date.</p>
+
+    <h5>Payment and Account Suspension:</h5>
+    <p>In the event of non-payment within the initial 14-day collection cycle, the account will be temporarily suspended.
+        Once suspended, access to all subscribed OTT services will be restricted until the outstanding payment is settled.</p>
+
+    <h5>Account Termination Policy:</h5>
+    <p>If the account holder fails to clear the outstanding bill even after the initial suspension, an additional 14-day grace period will be provided for payment.
+        Failure to settle the outstanding amount within the given 14-day grace period will result in permanent termination of the account and all associated subscriptions.</p>
+
+    <h5>Reactivation of Suspended Account:</h5>
+    <p>Once the outstanding payment is cleared, the account will be reactivated, and access to subscribed OTT services will be restored within 24 hours.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
-        <button type="button" class="btn btn-danger" (click)="confirmPurchase(plan?.planId)" data-dismiss="modal">Confirm</button>
+        <button type="button" class="btn btn-danger" (click)="confirmPurchase()" data-dismiss="modal">Confirm</button>
       </div>
     </div>
   </div>

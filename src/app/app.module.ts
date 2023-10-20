@@ -17,6 +17,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FamilyMemberComponent } from './home/family-member/family-member.component';
 import { CardComponent } from './home/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavigationComponent,
     FamilyMemberComponent,
     CardComponent,
+    InvoiceComponent,
    
   ],
   imports: [

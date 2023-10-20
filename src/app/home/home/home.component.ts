@@ -15,9 +15,9 @@ export class HomeComponent {
   
   ngOnInit(){
     this.getdata();
-    if(this.reload === false){
-      this.reloadpage();
-    }
+    // if(this.reload === false){
+    //   this.reloadpage();
+    // }
   }
 
   reloadpage(){

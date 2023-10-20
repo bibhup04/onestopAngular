@@ -23,6 +23,16 @@ export class FamilyMemberComponent {
 
   }
 
+  userMembers: { [key: string]: string } = {
+    member1: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcodepen.io%2FFibonaccifreak%2Ffull%2FEqQzNx&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABAD',
+    member2: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fnetflix-bootcamp-db.netlify.app%2F&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABAI',
+    member3: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fhotcore.info%2Fbabki%2Fnetflix-profile-icon.htm&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABAX',
+    member4: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fhotcore.info%2Fbabki%2Fnetflix-profile-icon.htm&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABAX',
+    member5: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fvlr.eng.br%2Ftri-colour-gold-necklace%2F%2Fthe-default-netflix-profile-r-pareidolia-ww-47512488&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABAt',
+    member6: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fnetflixsmiley%2Fstatus%2F1446887999476731904&psig=AOvVaw1tZx-JV4OWLZWz1KDh7Sjc&ust=1697866866687000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCPCJ55H1g4IDFQAAAAAdAAAAABA9'
+};
+
+
   getFamilydata(){
    
     this.userFamilyService.getFamilyDetails().pipe(

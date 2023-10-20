@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PlanDTO } from '../DTO/plan';
+import { PlanDTO, PlanIdDTO } from '../DTO/plan';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,10 @@ export class HomeService {
 
   getData(): Observable<PlanDTO[]>{
     return this.http.get<PlanDTO[]>(`${this.apiUrl}/home`);
+  }
+
+  buyPlan( planIdDTO: PlanIdDTO): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/plan/buy`, planIdDTO);
   }
 
 }          

@@ -1,4 +1,13 @@
 .container{
-    margin-top: 50px; 
-  margin-left: 130px;
+ background-color: rgb(246, 252, 252);
+ padding:40px;
+ padding-left: 150px;
+ margin: 0px;
+ max-width: fit-content;
 }
+
+body{
+  background-color: rgb(191, 221, 248);
+  
+}
+

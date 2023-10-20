@@ -1,9 +1,11 @@
 import { Component, HostBinding, Inject, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { PlanDTO, OttDTO } from 'src/app/DTO/plan';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { PlanDTO, PlanIdDTO } from 'src/app/DTO/plan';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HomeService } from 'src/app/service/home.service';
+import { catchError } from 'rxjs';
+import { AuthService } from 'src/app/AuthService';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,10 +22,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   ],
 })
 export class CardComponent {
-  @Input() plan?: PlanDTO;
+  @Input() plan!: PlanDTO;
   flipState: string = 'front';
-
-  constructor(@Inject(NgbModal)private modalService: NgbModal) {};
+  planIdDTO: PlanIdDTO = { planId: 0 };
+  openModal:Boolean = false;
+  num : number = 0;
+  response : string = '';
+  
+  constructor(private authService: AuthService,private homeservice:HomeService, private router: Router) {};
 
   toggleFlip() {
     this.flipState = this.flipState === 'front' ? 'back' : 'front';
@@ -39,30 +45,61 @@ export class CardComponent {
 
 
 openConfirmation() {
- 
-  const modal = document.getElementById('confirmationModal');
-  if (modal) {
-    modal.style.display = 'block';
+  this.openModal = true;
+  if (!this.authService.isLoggedIn) {
+    this.redirectToLogin();
+  } else {
+    if (this.plan) {
+        console.log('Plan ID:', this.plan.planId); 
+      } else {
+        console.error('Plan is undefined.');
+    }
+
   }
 }
 
+redirectToLogin() {
+  // Redirect to the login page
+  this.router.navigate(['/login']); // Adjust the route to your login page
+}
 
 
 
-closeModal() {
-  const modal = document.getElementById('confirmationModal');
-  if (modal) {
-    modal.style.display = 'none';
+
+
+  closeModal() {
+    this.openModal = false;
   }
-}
 
-confirmPurchase(planId: any) {
+  confirmPurchase() {
+    //console.log(this.plan)
+    console.log('Current Plan ID:', this.plan.planId); // Check the current value of this.planId
+    //  this.planIdDTO = this.plan.planId;
+    
+    this.num = this.plan.planId;
+    console.log("number" + this.num);
+    this.planIdDTO.planId = this.num;
+    console.log(this.planIdDTO.planId);
+    
+    this.buyPlan();
 
-  console.log('Plan ID:', planId);
+  }
+  
+  
 
-}
+  buyPlan(){
+   
+    this.homeservice.buyPlan(this.planIdDTO).pipe(
+      catchError((error) => {
+        console.error('Error from the server', error);
+        throw error;
+      })
+    ).subscribe((data) => {
+        this.response = data;
+          console.log('Plan subscribed', data);
+        });
 
-
+  }
 
 
 }

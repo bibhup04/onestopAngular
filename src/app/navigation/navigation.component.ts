@@ -25,12 +25,17 @@ export class NavigationComponent {
   ngOnInit() {
     this.userStatusService.isLoggedIn.subscribe(status => {
       this.isLoggedIn = status;
+      if (status) {
+        this.userName = this.authService.getUserName();
+      } else {
+        this.userName = ''; // Reset the username if the user is not logged in
+      }
     });
   }
-  
   logout() {
     this.authService.logout(); 
     this.isLoggedIn = false;
+    this.userStatusService.changeLoginStatus(false);
     this.router.navigate(['/home']);
   }
 

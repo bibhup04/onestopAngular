@@ -6,6 +6,7 @@ import { User } from 'src/app/user';
 import jwt_decode from 'jwt-decode';
 import { UserFamilyService } from 'src/app/service/user-family.service';
 import { UserDTO } from 'src/app/DTO/user-family';
+import { UserStatusService } from 'src/app/service/user-status.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { UserDTO } from 'src/app/DTO/user-family';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private userFamilyService: UserFamilyService, private router: Router) { }
+  constructor(private userStatusService: UserStatusService,private authService: AuthService, private userFamilyService: UserFamilyService, private router: Router) { }
   user: User = {
     username: '',
     password: ''
@@ -31,6 +32,9 @@ export class LoginComponent {
     ).subscribe((response) => {
       const token = response.token;
       console.log("token is - " +token);
+      this.authService.setToken(token);
+      const userName = this.authService.getUserName(); // Assuming the username is accessible in this.userDTO
+      this.userStatusService.changeLoginStatus(true, userName);
 
       // Decode the JWT token
     const decodedToken: any = jwt_decode(token);
@@ -46,12 +50,12 @@ export class LoginComponent {
     if (userRole === 'USER') {
       redirectRoute = '/home';
     } else if(userRole === 'ADMIN') {
-      redirectRoute = '/admin';
+      redirectRoute = '/home';
     } else{
       redirectRoute = '/register';
     }
 
-    this.authService.setToken(token);
+   
 
     this.getFamilydata();
 
