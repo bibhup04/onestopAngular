@@ -36,7 +36,7 @@
       </div>
       <div class="back">
         <div class="card-content">
-          <p> Bill Cycle- {{plan.billingCycle}}</p>
+          <p> Bill Cycle- {{plan.billingCycle}} Days</p>
           <p>OTT Platforms- {{plan.ottCount}}</p>
           <li *ngFor="let ott of plan?.otts">
             {{ ott.ottName }} {{ott.planTitle}}
@@ -66,7 +66,6 @@
       </div>
       <div  class="modal-body">
         <h3>Terms and Conditions</h3>
-        <h2>{{this.plan.planId}} {{this.plan.memberCount}} 123123</h2>
     <h5>Billing Account and Membership:</h5>
     <p>The postpaid multiple OTT subscription service is linked to a single billing account, owned by the primary account holder. 
         The primary account holder can add up to four family members to the subscription service.</p>

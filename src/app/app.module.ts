@@ -18,6 +18,7 @@ import { FamilyMemberComponent } from './home/family-member/family-member.compon
 import { CardComponent } from './home/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     FamilyMemberComponent,
     CardComponent,
     InvoiceComponent,
+    DialogComponent,
    
   ],
   imports: [

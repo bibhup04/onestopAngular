@@ -18,7 +18,7 @@ export class HomeService {
   }
 
   buyPlan( planIdDTO: PlanIdDTO): Observable<string> {
-    return this.http.post<string>(`${this.apiUrl}/plan/buy`, planIdDTO);
+    return this.http.post<string>(`${this.apiUrl}/plan/buy`, planIdDTO, { responseType: 'json'});
   }
 
 }          

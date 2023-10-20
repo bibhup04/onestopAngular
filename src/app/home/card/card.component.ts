@@ -1,11 +1,12 @@
 import { Component, HostBinding, Inject, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { PlanDTO, PlanIdDTO } from 'src/app/DTO/plan';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HomeService } from 'src/app/service/home.service';
 import { catchError } from 'rxjs';
 import { AuthService } from 'src/app/AuthService';
 import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -29,7 +30,7 @@ export class CardComponent {
   num : number = 0;
   response : string = '';
   
-  constructor(private authService: AuthService,private homeservice:HomeService, private router: Router) {};
+  constructor( private authService: AuthService,private homeservice:HomeService, private router: Router) {};
 
   toggleFlip() {
     this.flipState = this.flipState === 'front' ? 'back' : 'front';
@@ -91,15 +92,28 @@ redirectToLogin() {
    
     this.homeservice.buyPlan(this.planIdDTO).pipe(
       catchError((error) => {
+        alert("plan subscribed successfully");
         console.error('Error from the server', error);
         throw error;
       })
     ).subscribe((data) => {
         this.response = data;
+        alert("real response "+this.response);
           console.log('Plan subscribed', data);
         });
-
+        this.closeModal();
   }
+
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(DialogComponent, {
+  //     width: '250px',
+  //     data: { response: this.response },
+  //   });
+
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
 
 
 }

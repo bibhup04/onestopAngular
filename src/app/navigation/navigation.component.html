@@ -14,7 +14,7 @@
           <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/invoice">Invoice</a>
+          <a class="nav-link" *ngIf="isLoggedIn" routerLink="/invoice">Invoice</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="isLoggedIn" routerLink="/family">Family</a>
@@ -22,10 +22,10 @@
         <li class="nav-item">
             <a class="nav-link" *ngIf="isAdmin" (click)="navigateAdmin()">Admin</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="cursor: pointer;">
           <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()">Logout</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="cursor: pointer;">
           <a class="nav-link" *ngIf="!isLoggedIn" (click)="login()">Login</a>
         </li>
         <!-- <ng-template #showLogin>
@@ -33,7 +33,7 @@
             <a class="nav-link" (click)="login()">Login</a>
           </li>
         </ng-template> -->
-        <li class="nav-item">
+        <li class="nav-item" style="cursor: pointer;">
             <a class="nav-link" *ngIf="!isLoggedIn" (click)="register()">Register</a>
           </li>
           <li class="nav-item" *ngIf="isLoggedIn">
