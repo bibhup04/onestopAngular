@@ -1,0 +1,29 @@
+.bill-container {
+    width: 60%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .bill {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .bill-info,
+  .bill-details {
+    flex: 1;
+  }
+  
+  .label {
+    font-weight: bold;
+    min-width: 120px;
+  }
+  

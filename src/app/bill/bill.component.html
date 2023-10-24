@@ -1,1 +1,80 @@
-<p>bill works!</p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Left side with the bill -->
+        <div class="bill-container">
+          <h2 class="title">Purchase Receipt</h2>
+          <div class="bill">
+            <div class="bill-info">
+                <p><span class="label">Billing ID:</span> {{ bill.billingId }}</p>
+                <p><span class="label">Subscription ID:</span> {{ bill.subscriptionId }}</p>
+                <p><span class="label">User ID:</span> {{ bill.userId }}</p>
+                <p><span class="label">Date:</span> {{ bill.createdAt | date }}</p>
+              </div>
+              <div class="bill-details">
+                <p><span class="label">Amount:</span> {{ bill.amount | currency: 'INR' }}</p>
+                <p><span class="label">Payment Status:</span> {{ bill.paymentStatus }}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="payment-container d-flex flex-column justify-content-center align-items-center">
+            <h2 class="title">Payment Options</h2>
+            <div class="payment">
+            </div>
+            <button class="btn btn-primary" [disabled]="bill.paymentStatus === 'PAID'" (click)="showPaymentOptions = true">Pay Now</button>
+            <div *ngIf="showPaymentOptions" class="radio-options">
+                <label><input type="radio" name="paymentOption" (click)="showNetBankingFormMethod()"> Net Banking</label><br>
+                <label><input type="radio" name="paymentOption" (click)="showUpiFormMethod()"> UPI</label><br>
+                <label><input type="radio" name="paymentOption" (click)="showCardFormMethod()"> Card</label><br>
+                <!-- ... other radio options ... -->
+              </div>
+      
+              <div *ngIf="showNetBankingForm">
+                <form>
+                  <div class="form-group">
+                    <p>SBI is under maintenance, please choose an alternative payment method.</p>
+                </div>   
+                </form>
+              </div>
+              
+      
+              <div *ngIf="showUpiForm">
+                <form>
+                  <div class="form-group">
+                    <label for="upiId">Enter UPI ID:</label>
+                    <input type="text" class="form-control" id="upiId" [(ngModel)]="upiId" name="upiId" required>
+                  </div>
+                  <button class="btn btn-primary" (click)="makePayment('UPI')">Make Payment</button>
+                </form>
+              </div>
+              
+      
+              <div *ngIf="showCardForm">
+                <!-- Form for card details -->
+                <form>
+                  <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="number" class="form-control" id="cardNumber" [(ngModel)]="cardNumber" name="cardNumber" required>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="validThru">Valid Thru:</label>
+                      <input type="text" class="form-control" id="validThru" [(ngModel)]="validThru" name="validThru" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="cvv">CVV:</label>
+                      <input type="number" class="form-control" id="cvv" [(ngModel)]="cvv" name="cvv" required>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" (click)="makePayment('CARD')">Make Payment</button>
+                </form>
+              </div>
+              
+          </div>
+        </div>
+    </div>
+</div>
+  

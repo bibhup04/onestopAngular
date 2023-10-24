@@ -11,6 +11,7 @@ import { FamilyMemberComponent } from './home/family-member/family-member.compon
 import { CardComponent } from './home/card/card.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { BillComponent } from './bill/bill.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'card', component: CardComponent},
   { path: 'invoice', component: InvoiceComponent},
   { path: 'mySubscription', component: SubscriptionComponent},
+  { path: 'bill', component: BillComponent},
   {
     path: 'admin',
     component: AdminComponent,
