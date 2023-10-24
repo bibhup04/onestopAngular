@@ -9,7 +9,7 @@
             <p>Generated on: {{ invoice.createdAt | date }}</p>
             <p>{{ invoice.planDescription }}</p>
             <h3><strong>{{ invoice.finalPrice | currency: 'INR' }}</strong></h3>
-            <button class="view-button">View</button>
+            <button class="view-button" (click)="viewInvoice(invoice.id)">View</button>
         </div>
     </div>
 </div>

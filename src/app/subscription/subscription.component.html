@@ -1,0 +1,42 @@
+<div class="subscription-container">
+    <div class="subscription-item" *ngIf="subscription">
+      <h2>Subscription Details</h2>
+      <div class="item">
+        <span class="label">Subscription ID:</span>
+        <span>{{ subscription.subscriptionId }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Family ID:</span>
+        <span>{{ subscription.familyId }}</span>
+      </div>
+      <div class="item">
+        <span class="label">User ID:</span>
+        <span>{{ subscription.userId }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Plan ID:</span>
+        <span>{{ subscription.planId }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Final Price:</span>
+        <span>{{ subscription.finalPrice | currency: 'INR' }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Created At:</span>
+        <span>{{ subscription.createdAt | date }}</span>
+      </div>
+      <div class="item">
+        <span class="label">End Date:</span>
+        <span>{{ subscription.endDate | date }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Status:</span>
+        <span>{{ subscription.status }}</span>
+      </div>
+      <div class="item">
+        <span class="label">Auto Renewal:</span>
+        <span>{{ subscription.autoRenewal ? 'Yes' : 'No' }}</span>
+      </div>
+    </div>
+  </div>
+  

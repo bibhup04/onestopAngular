@@ -11,3 +11,6 @@ export interface InvoiceDTO {
     createdAt: Date;
   }
   
+export interface InvoiceIdDTO{
+  invoiceId: number;
+}

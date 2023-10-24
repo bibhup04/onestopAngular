@@ -10,6 +10,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { FamilyMemberComponent } from './home/family-member/family-member.component';
 import { CardComponent } from './home/card/card.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'family', component: FamilyMemberComponent},
   { path: 'card', component: CardComponent},
   { path: 'invoice', component: InvoiceComponent},
+  { path: 'mySubscription', component: SubscriptionComponent},
   {
     path: 'admin',
     component: AdminComponent,

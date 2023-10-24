@@ -19,6 +19,8 @@ import { CardComponent } from './home/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { BillComponent } from './bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { DialogComponent } from './dialog/dialog.component';
     CardComponent,
     InvoiceComponent,
     DialogComponent,
+    SubscriptionComponent,
+    BillComponent,
    
   ],
   imports: [
