@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { catchError } from 'rxjs';
+import { InvoiceDTO } from '../DTO/invoice';
+import { InvoiceService } from '../service/invoice.service';
 
 @Component({
   selector: 'app-invoice',
@@ -6,5 +9,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent {
+  invoiceList: InvoiceDTO [] = [];
+
+  constructor (private invoiceService: InvoiceService){}
+
+  ngOnInit(){
+    this.getInvoiceList();
+
+  }
+
+  
+  getInvoiceList(){
+   
+    this.invoiceService.getData().pipe(
+      catchError((error) => {
+        console.error('Error from the server', error);
+        throw error;
+      })
+    ).subscribe((data) => {
+          this.invoiceList = data;
+          console.log('Data from the server', this.invoiceList);
+          this.invoiceList.forEach((invoice) => {
+            console.log('Plan Id:', invoice.planDescription);
+          });
+        });
+
+  }
+
 
 }

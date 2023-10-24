@@ -1,0 +1,45 @@
+.invoice-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px 10%;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-heading {
+    color: #337ab7; /* Set the color to your preference */
+    font-family: Arial, sans-serif; /* Set the font-family to your preference */
+    font-size: 3em; /* Set the font size to your preference */
+    font-weight: bold; /* Set the font weight to bold */
+    margin-left: 10%; /* Set the left margin to 10% */
+}
+
+
+.box-content-inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.view-button:hover {
+    background-color: #45a049; /* Dark green */
+}
+
+h3 {
+    font-weight: bold;
+}

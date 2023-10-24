@@ -1,1 +1,17 @@
-<p>invoice works!</p>
+<div>
+    <h1 class="invoice-heading">Invoice</h1>
+  
+
+
+    <div *ngFor="let invoice of invoiceList" class="invoice-box">
+        <div class="box-content-inline">
+            <p><strong>ID:</strong> {{ invoice.id }}</p>
+            <p>Generated on: {{ invoice.createdAt | date }}</p>
+            <p>{{ invoice.planDescription }}</p>
+            <h3><strong>{{ invoice.finalPrice | currency: 'INR' }}</strong></h3>
+            <button class="view-button">View</button>
+        </div>
+    </div>
+</div>
+
+  
