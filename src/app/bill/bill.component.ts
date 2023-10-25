@@ -93,10 +93,16 @@ export class BillComponent {
     this.collectionService.payment(this.collectionDTO).pipe(
       catchError((error) => {
         console.error('Error from the server', error);
+        alert("There is some issues in payment, please pay later.");
         throw error;
       })
     ).subscribe((data) => {
           console.log('payment successful', data);
+          this.showPaymentOptions = false;
+          this.showNetBankingForm = false;
+          this.showCardForm = false;
+          this.showUpiForm = false;
+          alert("Payment successful.");
           this.ngOnInit();
     });
 

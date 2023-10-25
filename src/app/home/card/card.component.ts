@@ -29,6 +29,14 @@ export class CardComponent {
   openModal:Boolean = false;
   num : number = 0;
   response : string = '';
+
+  errorModalVisible: boolean = false;
+  errorMessage: string = '';
+
+  modalVisible: boolean = false;
+  modalMessage: string = '';
+  isError: boolean = false;
+  isSuccess: boolean = false;
   
   constructor( private authService: AuthService,private homeservice:HomeService, private router: Router) {};
 
@@ -60,8 +68,7 @@ openConfirmation() {
 }
 
 redirectToLogin() {
-  // Redirect to the login page
-  this.router.navigate(['/login']); // Adjust the route to your login page
+  this.router.navigate(['/login']); 
 }
 
 
@@ -74,7 +81,7 @@ redirectToLogin() {
 
   confirmPurchase() {
     //console.log(this.plan)
-    console.log('Current Plan ID:', this.plan.planId); // Check the current value of this.planId
+    console.log('Current Plan ID:', this.plan.planId); 
     //  this.planIdDTO = this.plan.planId;
     
     this.num = this.plan.planId;
@@ -88,32 +95,41 @@ redirectToLogin() {
   
   
 
-  buyPlan(){
-   
+  buyPlan() {
     this.homeservice.buyPlan(this.planIdDTO).pipe(
       catchError((error) => {
-        alert("plan subscribed successfully");
         console.error('Error from the server', error);
+        let errorMessage;
+        if (error.status === 400) {
+          errorMessage = error.error;
+        } else {
+          errorMessage = 'Error from the server: ' + (error.message ? error.message : JSON.stringify(error));
+        }
+        this.openResponseModal(errorMessage, true); // Open a modal with the error message
         throw error;
       })
     ).subscribe((data) => {
         this.response = data;
-        alert("real response "+this.response);
-          console.log('Plan subscribed', data);
-        });
-        this.closeModal();
+       // this.openSuccessModal(this.response); // Open a modal with the success message
+       //alert(this.response);
+       this.openResponseModal(this.response, false);
+        console.log('Plan subscribed', data);
+      });
+    this.closeModal();
   }
 
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(DialogComponent, {
-  //     width: '250px',
-  //     data: { response: this.response },
-  //   });
 
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
+  openResponseModal(message: string, isError: boolean) {
+    this.modalMessage = message;
+    this.isError = isError;
+    this.isSuccess = !isError;
+    this.modalVisible = true;
+  }
+
+  // Function to close the modal
+  closeResponseModal() {
+    this.modalVisible = false;
+  }
 
 
 }

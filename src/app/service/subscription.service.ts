@@ -14,4 +14,8 @@ export class SubscriptionService {
   getSubscribedPlan(): Observable<SubscriptionDTO>{
     return this.http.get<SubscriptionDTO>(`${this.apiUrl}/user/subscription`);
   }
+
+  endSubscription(subscriptionDTO: SubscriptionDTO): Observable<String>{
+    return this.http.post<String>(`${this.apiUrl}/end/subscription`, subscriptionDTO, { responseType: 'text' as 'json' });
+  }
 }

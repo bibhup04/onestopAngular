@@ -93,3 +93,21 @@
   </div>
 </div>
 
+<!-- Add this code snippet within the existing HTML content -->
+<!-- <div class="modal" *ngIf="errorModalVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeErrorModal()">&times;</span>
+    <p>{{ errorMessage }}</p>
+  </div>
+</div> -->
+
+
+<div class="modal" *ngIf="modalVisible">
+  <div class="modal-content" [ngClass]="{'error-modal': isError, 'success-modal': isSuccess}">
+    <span class="close" (click)="closeResponseModal()">&times;</span>
+    <p class="modal-message">{{ modalMessage }}</p>
+  </div>
+</div>
+
+
+
