@@ -16,6 +16,11 @@ export class FamilyMemberComponent {
   newMemberName: string='';
   newMemberPhoneNo: string='';
 
+  modalVisible: boolean = false;
+  modalMessage: string = '';
+  isError: boolean = false;
+  isSuccess: boolean = false;
+
   constructor (private userFamilyService:UserFamilyService){}
 
   ngOnInit(){
@@ -81,18 +86,38 @@ onSubmit() {
 }
 
 
-  addFamilydata(){
-   console.log("family memberws to add " + this.newMemberDTO);
-    this.userFamilyService.addFamilyDetails(this.newMemberDTO).pipe(
-      catchError((error) => {
-        console.error('Error from the server', error);
-        throw error;
-      })
-    ).subscribe((data) => {
-          this.MemberDTO = data;
-          console.log('Family Data from the server', this.MemberDTO);
-        });
+addFamilydata() {
+  console.log("family members to add " + this.newMemberDTO);
+  this.userFamilyService.addFamilyDetails(this.newMemberDTO).pipe(
+    catchError((error) => {
+      console.error('Error from the server', error);
+      let errorMessage;
+      if (error.status === 400) {
+        errorMessage = error.error;
+      } else {
+        errorMessage = 'Error from the server: ' + (error.message ? error.message : JSON.stringify(error));
+      }
+      this.openResponseModal(errorMessage, true); 
+      throw error;
+    })
+  ).subscribe((data) => {
+    console.log('Family Data from the server', data);
+  });
+}
 
-  }
+openResponseModal(message: string, isError: boolean) {
+  console.log("inside open response Modal" )
+  this.modalMessage = message;
+  this.isError = isError;
+  this.isSuccess = !isError;
+  this.modalVisible = true;
+  console.log("inside open response Modal" + this.modalVisible)
+}
+
+closeResponseModal() {
+  this.modalVisible = false;
+}
+
+
   
 }

@@ -1,5 +1,5 @@
 <div class="subscription-container">
-    <div class="subscription-item" *ngIf="subscription; else noSubscription">
+    <div class="subscription-item" *ngIf="showSubscription">
       <h2>Subscription Details</h2>
       <div class="item">
         <span class="label">Subscription ID:</span>
@@ -41,11 +41,11 @@
         <button (click)="showConfirmation = true">End Subscription</button>
       </div>
     </div>
-    <ng-template #noSubscription>
-      <div class="message">
+    <!-- <ng-template #noSubscription> -->
+      <div class="message" *ngIf="!showSubscription">
         <p>You don't have any subscribed plan. <a routerLink="/home">Click here to subscribe.</a></p>
       </div>
-    </ng-template>
+    <!-- </ng-template> -->
   </div>
 
   <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': showConfirmation, 'd-none': !showConfirmation}">

@@ -26,8 +26,8 @@ export class UserFamilyService {
   // addFamilyDetails(): Observable<NewMemberDTO>{
   //   return this.http.post<NewMemberDTO>(`${this.apiUrl}/getMember`);
   // }
-  addFamilyDetails( newMemberDTO: NewMemberDTO): Observable<any> {
-    return this.http.post(`${this.apiUrl}/addMember`, newMemberDTO);
+  addFamilyDetails( newMemberDTO: NewMemberDTO): Observable<String> {
+    return this.http.post<String>(`${this.apiUrl}/addMember`, newMemberDTO, { responseType: 'text' as 'json' });
   }
 
 

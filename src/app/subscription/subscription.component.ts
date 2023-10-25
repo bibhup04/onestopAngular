@@ -13,6 +13,7 @@ export class SubscriptionComponent {
 
   subscription: Partial<SubscriptionDTO> = {};
   showConfirmation: boolean = false;
+  showSubscription: boolean = true;
 
   constructor (private subscriptionService: SubscriptionService, private router: Router){}
 
@@ -25,11 +26,18 @@ export class SubscriptionComponent {
     this.subscriptionService.getSubscribedPlan().pipe(
       catchError((error) => {
         console.error('Error from the server', error);
+        this.showSubscription = false;
         throw error;
       })
     ).subscribe((data) => {
           this.subscription = data;
-          console.log('Data from the server', this.subscription.planId);
+          if(this.subscription == null){
+            this.showSubscription = false;
+          }else{
+            this.showSubscription = true;
+          }
+          
+          //console.log('Data from the server', this.subscription.planId);
         });
   }
 
