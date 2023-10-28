@@ -15,6 +15,11 @@ export class SubscriptionComponent {
   showConfirmation: boolean = false;
   showSubscription: boolean = true;
 
+  modalVisible: boolean = false;
+  modalMessage: string = '';
+  isError: boolean = false;
+  isSuccess: boolean = false;
+
   constructor (private subscriptionService: SubscriptionService, private router: Router){}
 
   ngOnInit(){
@@ -53,18 +58,34 @@ export class SubscriptionComponent {
         this.subscriptionService.endSubscription(this.subscription as SubscriptionDTO).pipe(
             catchError((error) => {
                 console.error('Error from the server', error);
-                alert('Error from the server: ' + error.message);
+                // alert('Error from the server: ' + error.message);
+                this.openResponseModal("Error from the server: " + error.message, true);
+                
                 throw error;
             })
         ).subscribe((data) => {
             console.log('Data from the server', data);
-            alert('Subscription ended successfully');
+            // alert('Subscription ended successfully');
+            this.openResponseModal("Subscription ended successfully", false);
             this.router.navigate(['/bill'])
         });
     } else {
         console.error("There is no subscribed plan, Refresh the page.");
     }
   }
+
+  openResponseModal(message: string, isError: boolean) {
+    this.modalMessage = message;
+    this.isError = isError;
+    this.isSuccess = !isError;
+    this.modalVisible = true;
+  }
+
+  // Function to close the modal
+  closeResponseModal() {
+    this.modalVisible = false;
+  }
+
 }
 
 

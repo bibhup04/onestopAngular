@@ -7,13 +7,18 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* .invoice-heading {
-    color: #337ab7; 
-    font-family: Arial, sans-serif;
-    font-size: 3em; 
-    font-weight: bold; 
-    margin-left: 10%; 
+/* .home {
+    background-color: #3E3636; 
 } */
+
+/* Set the background color for the heading section */
+.heading {
+    background-color: #4CAF50; /* Set your preferred background color here */
+    padding: 20px;
+    text-align: center;
+}
+
+
 
 
 .box-content-inline {

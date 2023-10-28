@@ -29,7 +29,10 @@
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">Phone:</label>
-          <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="newMemberPhoneNo">
+          <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="newMemberPhoneNo">
+        </div>
+        <div *ngIf="showError" class="alert alert-danger" role="alert">
+          Invalid card number. Please check your input.
         </div>
         <button type="button" class="btn btn-secondary me-2" (click)="addFields()">Add More</button>
         <button type="submit" class="btn btn-primary">Submit</button>

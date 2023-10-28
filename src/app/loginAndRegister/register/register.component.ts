@@ -18,6 +18,9 @@ export class RegisterComponent {
   passwordRepeat?: '';
   constructor(private registerService: RegisterService, private router: Router) { }
 
+
+
+
   register(){
     if (this.newUser.password !== this.passwordRepeat) {
       alert("Passwords do not match. Please re-enter them.");

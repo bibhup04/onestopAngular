@@ -13,6 +13,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registerUser(newUser: newUser): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, newUser);
+    return this.http.post(`${this.baseUrl}/register`, newUser, { responseType: 'text' as 'json' });
   }
 }

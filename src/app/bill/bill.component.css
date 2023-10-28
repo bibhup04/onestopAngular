@@ -21,7 +21,7 @@
   .bill-details {
     flex: 1;
   }
-  
+
   .label {
     font-weight: bold;
     min-width: 120px;
@@ -72,4 +72,56 @@
     font-weight: bold;
 }
 
+
+
+  /* Modal Styles */
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+
+  .error-modal {
+    border: 2px solid #ff4d4f;
+  }
+
+  .success-modal {
+    border: 2px solid #52c41a;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-message {
+    color: #000;
+    font-size: 16px;
+    margin-top: 20px;
+  }
   

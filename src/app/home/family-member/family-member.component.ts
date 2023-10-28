@@ -15,6 +15,7 @@ export class FamilyMemberComponent {
   nameAndPhone: NameAndPhone [] = []; 
   newMemberName: string='';
   newMemberPhoneNo: string='';
+  showError: boolean = false;
 
   modalVisible: boolean = false;
   modalMessage: string = '';
@@ -58,6 +59,14 @@ export class FamilyMemberComponent {
 // Assuming this.newMemberDTO and this.nameAndPhone are defined in the class
 
 addFields() {
+  // console.log("its here" + this.newMemberPhoneNo.length)
+  // if (this.newMemberPhoneNo.length != 10) {
+  //   this.showError = true;
+  //   this.newMemberPhoneNo='';
+  //   this.newMemberName=''
+  // } else {
+  //   this.showError = false;}
+  console.log("its here")
   if (this.nameAndPhone.length < 4) {
     const newMember: NameAndPhone = {
       name: this.newMemberName,
@@ -74,6 +83,7 @@ addFields() {
     this.newMemberPhoneNo = '';
     console.log("new members to add - " + JSON.stringify(this.nameAndPhone));
   }
+
 }
 
 

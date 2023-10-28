@@ -84,50 +84,52 @@
 
 
   /* Modal Styles */
-.modal {
-  display: block;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+  .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
 
-.error-modal {
-  background-color: #e66d65; /* Red color for error messages */
-}
+  .error-modal {
+    border: 2px solid #ff4d4f;
+  }
 
-.success-modal {
-  background-color: #32CD32; /* Green color for success messages */
-}
+  .success-modal {
+    border: 2px solid #52c41a;
+  }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-.modal-message {
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-}
+  .modal-message {
+    color: #000;
+    font-size: 16px;
+    margin-top: 20px;
+  }

@@ -17,6 +17,11 @@ export class BillComponent {
   showError: boolean = false;
   showErrorUpi: boolean = false;
 
+  modalVisible: boolean = false;
+  modalMessage: string = '';
+  isError: boolean = false;
+  isSuccess: boolean = false;
+
   showNetBankingForm: boolean = false;
   showCardForm: boolean = false;
   showUpiForm: boolean = false;
@@ -109,7 +114,8 @@ export class BillComponent {
     this.collectionService.payment(this.collectionDTO).pipe(
       catchError((error) => {
         console.error('Error from the server', error);
-        alert("There is some issues in payment, please pay later.");
+        // alert("There is some issues in payment, please pay later.");
+        this.openResponseModal("There is some issues in payment, please pay later.", true);
         throw error;
       })
     ).subscribe((data) => {
@@ -118,7 +124,8 @@ export class BillComponent {
           this.showNetBankingForm = false;
           this.showCardForm = false;
           this.showUpiForm = false;
-          alert("Payment successful.");
+          // alert("Payment successful.");
+          this.openResponseModal("Payment successful.", false);
           this.ngOnInit();
     });
 
@@ -135,6 +142,18 @@ export class BillComponent {
   validateUpiId(upiId: string): boolean {
     const pattern = /^[a-zA-Z0-9.-]{2,256}@[a-zA-Z][a-zA-Z]{2,64}$/;
     return pattern.test(upiId);
+  }
+
+  openResponseModal(message: string, isError: boolean) {
+    this.modalMessage = message;
+    this.isError = isError;
+    this.isSuccess = !isError;
+    this.modalVisible = true;
+  }
+
+  // Function to close the modal
+  closeResponseModal() {
+    this.modalVisible = false;
   }
 
 }

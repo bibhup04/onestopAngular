@@ -1,29 +1,22 @@
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Register</title>
-</head>
-
-<body>
-    <div class="container">
+<div class="container">
+    <div class="logo-div">
+        <!-- Your logo here -->
+        <img src="../../../assets/images/logo.png" alt="Logo" style="max-width: 80%; margin-top: 30px;">
+    </div>
+    <div class="form-div">
         <h2>Register</h2>
-        <br>
-        <!-- <img src = "data:image/jpeg;base64,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">
-        <br>
-        <br> -->
+        
         <form (ngSubmit)="register()">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" [(ngModel)]="newUser.name" required>
             </div>
             <div class="form-group">
-                <label for="username">email</label>
+                <label for="email">Email</label>
                 <input type="text" id="email" name="email" [(ngModel)]="newUser.email" required>
             </div>
             <div class="form-group">
-                <label for="username">phoneNo</label>
+                <label for="phoneNo">Phone Number</label>
                 <input type="text" id="phoneNo" name="phoneNo" [(ngModel)]="newUser.phoneNo" required>
             </div>
             <div class="form-group">
@@ -31,15 +24,17 @@
                 <input type="password" id="password" name="password" [(ngModel)]="newUser.password" required>
             </div>
             <div class="form-group">
-                <label for="cnfrmPassword">confirm Password</label>
+                <label for="cnfrmPassword">Confirm Password</label>
                 <input type="password" id="cnfrmPassword" name="cnfrmPassword" [(ngModel)]="passwordRepeat" required>
             </div>
             
-            <button class="btn btn-success btn-sm mr-4" type="submit">Register</button>
+            <button class="register-button" type="submit">Register</button>
         </form>
-        <button class="btn btn-info btn-sm mr-4" routerLink="/login">Login</button>
+        <button class="login-button" routerLink="/login">Login</button>
+        <!-- Add this code to your component's HTML template -->
+
+
 
     </div>
-</body>
-
-</html>
+    
+</div>

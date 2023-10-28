@@ -72,3 +72,9 @@
     </div>
 </div>
   
+<div class="modal" *ngIf="modalVisible">
+  <div class="modal-content" [ngClass]="{'error-modal': isError, 'success-modal': isSuccess}">
+    <span class="close" (click)="closeResponseModal()">&times;</span>
+    <p class="modal-message">{{ modalMessage }}</p>
+  </div>
+</div>

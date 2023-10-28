@@ -12,7 +12,7 @@
     max-width: 100px;
 } */
 .container-fluid {
-    background-color: #446063;
+    background-color: #EFE5E5;
   }
 
 .container {
@@ -21,7 +21,7 @@
     padding: 20px;
     /* border: 1px solid #ccc; */
     border-radius: 5px;
-    background-color: #241294;
+    background-color: #999090;
 }
 
 h2 {
@@ -37,7 +37,7 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #CCD4DD;
+    background-color: #EFE5E5 ;
 }
 .member-info {
     width: 180px;
