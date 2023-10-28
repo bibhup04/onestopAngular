@@ -32,6 +32,7 @@
           <div class="member-info">
             <p><strong>Name:</strong> {{ member.name }}</p>
             <p><strong>Phone:</strong> {{ member.phoneNo }}</p>
+            <button (click)="deleteMember(member)">Delete</button>
           </div>
         </li>
       </ul>

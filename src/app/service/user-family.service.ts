@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserDTO } from '../DTO/user-family';
+import { NameAndPhone, UserDTO } from '../DTO/user-family';
 import { Observable } from 'rxjs';
 import { NewMemberDTO } from '../DTO/user-family';
 
@@ -30,6 +30,9 @@ export class UserFamilyService {
     return this.http.post<String>(`${this.apiUrl}/addMember`, newMemberDTO, { responseType: 'text' as 'json' });
   }
 
+  deleteFamilyMember( nameAndPhone: NameAndPhone): Observable<String> {
+    return this.http.post<String>(`${this.apiUrl}/delete/member`, nameAndPhone, { responseType: 'text' as 'json' });
+  }
 
 
 }

@@ -11,7 +11,7 @@ import jwt_decode from 'jwt-decode';
     providedIn: 'root',
 })
 export class AuthService {
-    private apiUrl = 'http://localhost:9898/auth/token';
+    private apiUrl = 'http://localhost:8080/auth/token';
     user: any;
     //private authToken: string | null = null;
 

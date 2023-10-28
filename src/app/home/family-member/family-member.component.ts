@@ -102,6 +102,7 @@ addFamilydata() {
     })
   ).subscribe((data) => {
     console.log('Family Data from the server', data);
+    this.ngOnInit();
   });
 }
 
@@ -118,6 +119,27 @@ closeResponseModal() {
   this.modalVisible = false;
 }
 
+deleteMember(member: NameAndPhone) {
+  console.log("Member Name: ", member.name);
+  console.log("Member Phone Number: ", member.phoneNo);
+  this.userFamilyService.deleteFamilyMember(member).pipe(
+    catchError((error) => {
+      console.error('Error from the server', error);
+      let errorMessage;
+      if (error.status === 400) {
+        errorMessage = error.error;
+      } else {
+        errorMessage = 'Error from the server: ' + (error.message ? error.message : JSON.stringify(error));
+      }
+      this.openResponseModal(errorMessage, true); 
+      throw error;
+    })
+  ).subscribe((data) => {
+    console.log('Member deleted successfully', data);
+    this.ngOnInit();
+  });
+
+}
 
   
 }
