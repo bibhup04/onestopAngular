@@ -14,6 +14,8 @@ export class BillComponent {
   bill: Partial<BillingDTO> = {}
   collectionDTO: Partial<CollectionDTO> = {}
   showPaymentOptions: boolean = false;
+  showError: boolean = false;
+  showErrorUpi: boolean = false;
 
   showNetBankingForm: boolean = false;
   showCardForm: boolean = false;
@@ -63,6 +65,12 @@ export class BillComponent {
   makePayment(paymentType: string) {
 
     if (paymentType === 'CARD') {
+      if (!this.luhnCheck(parseInt(this.cardNumber))) {
+        this.showError = true;
+      } else {
+        this.showError = false;
+        // Proceed with payment logic
+      
       if (this.cardNumber == '' || this.validThru == '' || this.cvv == '' ) {
         alert('Please fill out all card details.');
         return;
@@ -70,8 +78,12 @@ export class BillComponent {
       else{
         this.pay();
       }
- 
+    }
     } else if (paymentType === 'UPI') {
+      if (!this.validateUpiId(this.upiId)) {
+        this.showErrorUpi = true;
+      } else {
+        this.showErrorUpi = false;     
       if (this.upiId == '' ) {
         alert('Please fill out UPI ID.');
         return;
@@ -79,7 +91,7 @@ export class BillComponent {
       else{
         this.pay();
       }
-    
+    }
     }
   
   }
@@ -89,6 +101,10 @@ export class BillComponent {
     this.collectionDTO.billId = this.bill.billingId;
     this.collectionDTO.subscriptionId = this.bill.subscriptionId;
     this.collectionDTO.amountCollected = this.bill.amount;
+    this.cardNumber = '';
+    this.cvv='';
+    this.validThru='';
+    this.upiId='';
 
     this.collectionService.payment(this.collectionDTO).pipe(
       catchError((error) => {
@@ -106,6 +122,19 @@ export class BillComponent {
           this.ngOnInit();
     });
 
+  }
+
+  luhnCheck(cardNumber: number): boolean {
+    let numString = cardNumber.toString();
+    if (numString.length !== 16) {
+        return false; // Return false if the number is not 16 digits long
+    }
+    return true;
+  }
+
+  validateUpiId(upiId: string): boolean {
+    const pattern = /^[a-zA-Z0-9.-]{2,256}@[a-zA-Z][a-zA-Z]{2,64}$/;
+    return pattern.test(upiId);
   }
 
 }

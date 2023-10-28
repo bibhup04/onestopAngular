@@ -11,14 +11,17 @@
 .image-container img {
     max-width: 100px;
 } */
+.container-fluid {
+    background-color: #446063;
+  }
 
 .container {
-    width: 60%;
+    width: 100%;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #241294;
 }
 
 h2 {
@@ -30,12 +33,17 @@ h2 {
 }
 
 .member-info {
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: #CCD4DD;
 }
+.member-info {
+    width: 180px;
+    height: 260px;
+  }
+  
 
 form {
     margin-top: 20px;

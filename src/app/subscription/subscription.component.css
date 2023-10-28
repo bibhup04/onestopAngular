@@ -27,4 +27,42 @@
     font-weight: bold;
     min-width: 150px;
   }
+  .item span {
+    font-weight: bold;
+}
   
+  .red-text {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .yellow-text {
+    color: yellow;
+    font-weight: bold;
+  }
+  
+  .green-text {
+    color: green;
+    font-weight: bold;
+  }
+  
+
+  .end-subscription {
+    display: flex;
+    justify-content: center;
+}
+  
+
+  .end-subscription button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.end-subscription button:hover {
+    background-color: #d32f2f;
+}

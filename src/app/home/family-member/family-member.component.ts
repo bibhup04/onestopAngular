@@ -20,6 +20,7 @@ export class FamilyMemberComponent {
   modalMessage: string = '';
   isError: boolean = false;
   isSuccess: boolean = false;
+  invalidInput = false;
 
   constructor (private userFamilyService:UserFamilyService){}
 
@@ -86,6 +87,8 @@ onSubmit() {
 }
 
 
+
+
 addFamilydata() {
   console.log("family members to add " + this.newMemberDTO);
   this.userFamilyService.addFamilyDetails(this.newMemberDTO).pipe(
@@ -140,6 +143,17 @@ deleteMember(member: NameAndPhone) {
   });
 
 }
+
+
+imagePaths: { [key: string]: string } =  {
+  member1: '../../../assets/images/member1.png',
+  member2: '../../../assets/images/member2.png',
+  member3: '../../../assets/images/member3.png',
+  member4: '../../../assets/images/member4.png',
+  member5: '../../../assets/images/member5.png',
+  member6: '../../../assets/images/member6.png',
+};
+
 
   
 }

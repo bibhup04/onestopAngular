@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BaseComponentComponent } from './base-component/base-component.component';
@@ -46,7 +47,8 @@ import { BillComponent } from './bill/bill.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    CarouselModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]

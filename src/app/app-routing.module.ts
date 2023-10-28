@@ -12,17 +12,18 @@ import { CardComponent } from './home/card/card.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { BillComponent } from './bill/bill.component';
+import { AuthGuard } from './AuthGuard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent},
-  { path: 'family', component: FamilyMemberComponent},
+  { path: 'family', component: FamilyMemberComponent, canActivate: [AuthGuard]},
   { path: 'card', component: CardComponent},
-  { path: 'invoice', component: InvoiceComponent},
-  { path: 'mySubscription', component: SubscriptionComponent},
-  { path: 'bill', component: BillComponent},
+  { path: 'invoice', component: InvoiceComponent, canActivate: [AuthGuard]},
+  { path: 'mySubscription', component: SubscriptionComponent, canActivate: [AuthGuard]},
+  { path: 'bill', component: BillComponent, canActivate: [AuthGuard] },
   {
     path: 'admin',
     component: AdminComponent,

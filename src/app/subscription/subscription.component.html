@@ -1,6 +1,7 @@
 <div class="subscription-container">
     <div class="subscription-item" *ngIf="showSubscription">
-      <h2>Subscription Details</h2>
+      <h2 style="font-weight: bold; font-size: 24px;">Subscription Details</h2>
+
       <div class="item">
         <span class="label">Subscription ID:</span>
         <span>{{ subscription.subscriptionId }}</span>
@@ -31,12 +32,15 @@
       </div>
       <div class="item">
         <span class="label">Status:</span>
-        <span>{{ subscription.status }}</span>
+        <span [ngClass]="{'red-text': subscription.status === 'TERMINATE', 'yellow-text': subscription.status === 'SUSPEND', 'green-text': subscription.status === 'ACTIVE'}">{{ subscription.status }}</span>
       </div>
       <div class="item">
         <span class="label">Auto Renewal:</span>
-        <span>{{ subscription.autoRenewal ? 'Yes' : 'No' }}</span>
-      </div>
+        <span [ngClass]="{'green-text': subscription.autoRenewal, 'red-text': !subscription.autoRenewal}">
+            {{ subscription.autoRenewal ? 'Yes' : 'No' }}
+        </span>
+    </div>
+    
       <div class="end-subscription">
         <button (click)="showConfirmation = true">End Subscription</button>
       </div>
