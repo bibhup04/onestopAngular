@@ -7,7 +7,14 @@
     height: 370px; /* Adjust the height as needed */
     background-color: #CCD4DD;
   }
-
+  
+  .popular {
+    /* Add your desired styles here */
+    color: red; /* Example: Change the text color to red for emphasis */
+    font-weight: bold; /* Example: Make the text bold for emphasis */
+    /* Add other styles as needed to make it more attractive */
+  }
+  
   
   .card {
     width: 100%;
