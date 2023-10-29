@@ -54,18 +54,9 @@ export class FamilyMemberComponent {
 
   }
 
-  // Assuming this.nameAndPhone is defined in the class
-
-// Assuming this.newMemberDTO and this.nameAndPhone are defined in the class
 
 addFields() {
-  // console.log("its here" + this.newMemberPhoneNo.length)
-  // if (this.newMemberPhoneNo.length != 10) {
-  //   this.showError = true;
-  //   this.newMemberPhoneNo='';
-  //   this.newMemberName=''
-  // } else {
-  //   this.showError = false;}
+
   console.log("its here")
   if (this.nameAndPhone.length < 4) {
     const newMember: NameAndPhone = {

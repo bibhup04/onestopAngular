@@ -13,7 +13,10 @@
               <img [src]="imagePaths['member' + (i + 1)]" alt="Member Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
               <p><strong>Name:</strong> {{ member.name }}</p>
               <p><strong>Phone:</strong> {{ member.phoneNo }}</p>
-              <button (click)="deleteMember(member)" class="btn btn-danger">Delete</button>
+              <button *ngIf="i !== 0" (click)="deleteMember(member)" class="btn btn-danger">
+                <i class="fa fa-trash"></i> Delete
+              </button>
+              
             </div>
           </div>
         </div>
@@ -34,8 +37,9 @@
         <div *ngIf="showError" class="alert alert-danger" role="alert">
           Invalid card number. Please check your input.
         </div>
-        <button type="button" class="btn btn-secondary me-2" (click)="addFields()">Add More</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary me-2 custom-button" (click)="addFields()">Submit</button>
+
+        <button type="submit" class="btn btn-primary">Add Members</button>
       </form>
       <div class="modal mt-3" *ngIf="modalVisible">
         <div class="modal-content" [ngClass]="{'error-modal': isError, 'success-modal': isSuccess}">

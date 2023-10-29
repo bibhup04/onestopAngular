@@ -2,21 +2,20 @@
     border: 1px solid #ddd;
     padding: 20px;
     margin: 10px 10%;
-    background-color: #f9f9f9;
+    background-color: #e3e3e3;
     border-radius: 5px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* .home {
-    background-color: #3E3636; 
-} */
+.home {
+    background-color: #939292; 
+}
 
-/* Set the background color for the heading section */
-.heading {
-    background-color: #4CAF50; /* Set your preferred background color here */
+/* .heading {
+    background-color: #939292; 
     padding: 20px;
     text-align: center;
-}
+} */
 
 
 
@@ -24,6 +23,7 @@
 .box-content-inline {
     display: flex;
     justify-content: space-between;
+    background-color: #e3e3e3;
 }
 
 .view-button {
@@ -50,15 +50,15 @@ h3 {
 }
 
 .heading {
-    background-color: #f2f2f2;
+    background-color: #939292;
     padding: 20px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
 .invoice-heading {
-    color: #333;
+    color: #ffffff;
     text-align: center;
     font-size: 40px;
     font-weight: bold;

@@ -12,7 +12,7 @@
     max-width: 100px;
 } */
 .container-fluid {
-    background-color: #EFE5E5;
+    background-color: #c8c7c7;
   }
 
 .container {
@@ -21,7 +21,7 @@
     padding: 20px;
     /* border: 1px solid #ccc; */
     border-radius: 5px;
-    background-color: #999090;
+    background-color: #939292;
 }
 
 h2 {
@@ -37,7 +37,7 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #EFE5E5 ;
+    background-color: #c8c7c7 ;
 }
 .member-info {
     width: 180px;
@@ -65,7 +65,7 @@ input[type="text"] {
     border: 1px solid #ddd;
 }
 
-button {
+.custom-button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -75,9 +75,10 @@ button {
     margin-right: 10px;
 }
 
-button:hover {
+.custom-button:hover {
     background-color: #45a049;
 }
+
 
 button:active {
     background-color: #3e8e41;
@@ -94,51 +95,53 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
     background-color: #00677a;
 }
-
+/* Modal Styles */
 .modal {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
   }
-  
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+
+  .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
   }
-  
+
   .error-modal {
-    background-color: #e66d65; /* Red color for error messages */
+    border: 2px solid #ff4d4f;
   }
-  
+
   .success-modal {
-    background-color: #32CD32; /* Green color for success messages */
+    border: 2px solid #52c41a;
   }
-  
+
   .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
   }
-  
+
   .close:hover,
   .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
   }
-  
+
   .modal-message {
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
+    color: #000;
+    font-size: 16px;
+    margin-top: 20px;
   }
